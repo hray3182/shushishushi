@@ -4,7 +4,8 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex
+    display: flex;
+    position: relative; /* 新增 */
 }
 
 header {
@@ -61,7 +62,44 @@ nav {
     height: 100vh;
     right: 0px;
     position: fixed;
+    display: felx;
+    align-items: center;
+    justify-items: center;
 }
+
+.right .head img {
+    margin: 20px;
+}
+
+.right .bottom {
+    width: 100%;
+    display: felx;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+}
+
+.right .bottom p {
+    font-size: x-large;
+}
+
+.right .bottom button {
+    width: calc(100% - 20px);
+    margin: auto;
+    font-size: xx-large;
+    background-color: #F3B8AA;
+    border: none;
+    border-radius: 20px;
+}
+
+.right .bottom button {
+    cursor: pointer;
+}
+
+
 
 .content {
     left: 80px;
@@ -69,8 +107,12 @@ nav {
     right: 300px;
     position: fixed;
     padding: 0px;
+    padding-bottom: 50px;
     width: calc(100vw - 300px - 80px);
     height: 100vh;
+    overflow: auto;
+    height: calc(100vh - 80px); /* 減去頂部導航欄的高度 */
+    overflow-y: auto; /* 允許在 Y 軸方向滾動 */
 }
 
 .category {
@@ -132,6 +174,10 @@ nav {
     background-color: #F6ECEA;
 }
 
+.sushi-item:hover {
+    cursor: pointer;
+}
+
 .sushi-item img {
     max-width: 100%;
     border-radius: 40%;
@@ -156,7 +202,9 @@ nav {
     top: 0; 
     left: 0; 
     z-index: 1; 
+    display:flex;
 }
+
 
 .order {
     width: 600px;
@@ -166,6 +214,7 @@ nav {
     border-radius: 50px;
     padding: 20px;
     border: 20px solid #D99686;
+    position: relative;
 }
 
 .order ul {
@@ -224,6 +273,22 @@ nav {
     transform: scale(2); 
 }
 
+#close {
+    right: 0;
+    position: absolute; /* 新增 */
+}
+
+#close:hover {
+    cursor: pointer;
+}
+
+#close img{
+    width: 30px;
+    right: 0;
+    margin-right: 10px;
+}
+
+
 .order-header {
     display: flex;
     justify-content: space-between;
@@ -233,6 +298,8 @@ nav {
 .order-header img {
     width: 300px;
     border-radius: 20%;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 .order-header h1 {

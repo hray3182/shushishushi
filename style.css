@@ -1,3 +1,5 @@
+/* -------------------- home -------------------- */
+
 body {
     margin: 0px;
     padding: 0px;
@@ -20,7 +22,7 @@ header {
     display: inline-block;
     vertical-align: middle;
 }
-    
+
 
 
 nav {
@@ -35,19 +37,19 @@ nav {
     align-items: center;
 }
 
-.left > ul {
+.left>ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
     padding-top: 20px;
 }
 
-.left > ul > li {
+.left>ul>li {
     padding: 10px;
     text-align: center;
 }
 
-.left > ul > li > a > img {
+.left>ul>li>a>img {
     height: 50px;
     width: 50px;
 }
@@ -74,12 +76,12 @@ nav {
 .category {
     height: 80px;
     width: 600px;
-    margin:10px auto;
+    margin: 10px auto;
     padding: 0px;
     top: 0px;
 }
 
-.category > ul {
+.category>ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -87,13 +89,13 @@ nav {
     flex-wrap: wrap;
 }
 
-.category > ul > li {
+.category>ul>li {
     display: inline;
     text-align: center;
     width: 25%;
 }
 
-.category > ul > li > a {
+.category>ul>li>a {
     background-color: #F5CAA0;
     text-decoration: none;
     color: black;
@@ -112,26 +114,93 @@ nav {
     width: 800px;
     margin: auto;
     flex-wrap: wrap;
-  }
-  .menu-category {
+}
+
+.menu-category {
     width: 100%;
     margin: auto;
     text-align: center;
-  }
-  .sushi-item {
+}
+
+.sushi-item {
     flex-basis: calc(25% - 20px);
-    box-sizing: border-box; 
+    box-sizing: border-box;
     border-radius: 20%;
     padding: 20px;
     margin: 10px;
     text-align: center;
     background-color: #F6ECEA;
-  }
-  .sushi-item img {
+}
+
+.sushi-item img {
     max-width: 100%;
     border-radius: 40%;
-  }
-  .description {
+}
+
+.description {
     font-weight: bold;
     margin-top: 10px;
-  }
+}
+
+
+/* -------------------- add order -------------------- */
+
+#add_order {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5); 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    z-index: 1; 
+}
+
+.order {
+    width: 800px;
+    background-color: #F6ECEA; 
+    z-index: 2; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 50px;
+    padding: 20px;
+    border: 20px solid #D99686;
+}
+
+.order ul {
+    list-style-type: none;
+}
+
+.order ul li {
+    font-size: xx-large;
+}
+
+.quantity {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.order-body input[type="checkbox"] {
+    transform: scale(2); 
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-header img {
+    width: 300px;
+    border-radius: 20%;
+}
+
+.order-header h1 {
+    color: black;
+    margin: 0; 
+    padding: 20px;
+}
+

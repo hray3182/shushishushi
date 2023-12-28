@@ -55,10 +55,11 @@ function createMenu(menuItems) {
     return menuContainer;
 }
 
+// 生成訂購單 Html
 function createOrder(item) {
     orderHtml = `
     <div id="add_order">
-    <div class="order">
+    <div class="order" data-key="${item.key}">
         <a id="close"><img src="./assets/close.svg" alt=""></a>
         <div class="order-header">
             <h1>${item.name}</h1>
@@ -89,11 +90,11 @@ function createOrder(item) {
             </ul>
             <div class="quantity">
 
-                <button>
+                <button id="minus">
                     <img src="./assets/minus.svg" onclick="">
                 </button>
-                <p>1</p>
-                <button>
+                <p id="quantity">1</p>
+                <button id="plus">
                     <img src="./assets/plus.svg" onclick="">
                 </button>
                 
@@ -109,16 +110,85 @@ function createOrder(item) {
     body.insertAdjacentHTML('beforeend', orderHtml);
     
     setTimeout(listenClose, 0);
+    setTimeout(listenPlusButton, 0);
+    setTimeout(listenMinusButton, 0);
+    setTimeout(sendToCart, 0);
 }
 
-function listenClose() {
+// 創建訂單明細
+function createDetial(item, quantity) {
+    // <li>蝦仁扇貝天婦羅醬拌烏龍麵(溫) x 1 $130</li>
+    let html = `<li>${item.name} x ${quantity} $${item.price * quantity}</li>`
+    const ul = document.querySelector("#order-list")
+    ul.insertAdjacentHTML('beforeend', html);
+    closeOrderForm()
+}
+
+// close order form
+function closeOrderForm() {
     const addOrder = document.querySelector("#add_order")
+    addOrder.remove()
+
+}
+
+// count total
+function countTotal() {
+
+}
+
+// 監聽關閉按鈕
+function listenClose() {
 
     const orderCloseBtn = document.querySelector('#close');
     orderCloseBtn.addEventListener('click', function () {
         console.log("test")
-        addOrder.remove()
+        closeOrderForm()
     });
+}
+
+// 監聽訂單 plus button
+function listenPlusButton() {
+    const plus = document.querySelector("#plus")
+    const quantity = document.querySelector("#quantity")
+    plus.addEventListener('click', function () {
+        // get quantity 
+        let q = quantity.innerHTML
+        q++
+        quantity.innerHTML = q
+    });
+}
+
+// 監聽訂單 minus button
+function listenMinusButton() {
+    const minus = document.querySelector("#minus")
+    const quantity = document.querySelector("#quantity")
+    minus.addEventListener('click', function () {
+        // get quantity 
+        let q = quantity.innerHTML
+        if (q > 1 ) {
+
+            q--
+            quantity.innerHTML = q
+        }
+    });
+}
+
+// 監聽送出訂單按鈕
+function sendToCart() {
+    // send-to-cart
+    const sendToCart = document.querySelector("#send-to-cart")
+
+    sendToCart.addEventListener('click', function () {
+
+
+        // get key from document.querySelector("#add_order > div")
+        const key = document.querySelector("#add_order > div").dataset.key
+        // get item data by key
+        const itemData = menuData.menuItems.filter(item => item.key == key)[0];
+        // get quantity 
+        const q = document.querySelector("#quantity").innerHTML
+        createDetial(itemData, q)
+    })
 }
 
 // 當文檔加載完成後，將菜單添加到 .content 元素中
@@ -152,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 

@@ -159,7 +159,7 @@ nav {
 }
 
 .order {
-    width: 800px;
+    width: 600px;
     background-color: #F6ECEA; 
     z-index: 2; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
@@ -181,7 +181,44 @@ nav {
     margin: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
+.quantity p {
+    margin: 0 30px 0 30px;
+    font-size: xx-large;
+}
+
+.quantity button {
+    border: none; 
+    background: none;
+    padding: 0; 
+}
+
+.quantity button:hover {
+    cursor: pointer;
+}
+
+#send-to-cart{
+    display: flex;
+    align-items: center;
+}
+
+#send-to-cart button {
+    width: 250px;
+    border: none; 
+    margin: auto;
+    background-color: #F3B8AA;
+    font-size: x-large;
+    border-radius: 125px;
+    margin-top: 10px;
+}
+
+#send-to-cart button:hover {
+    cursor: pointer;
+}
+
+
 
 .order-body input[type="checkbox"] {
     transform: scale(2); 

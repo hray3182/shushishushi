@@ -231,7 +231,7 @@
 
 #close {
     right: 0;
-    position: absolute; /* 新增 */
+    position: absolute; 
 }
 
 #close:hover {

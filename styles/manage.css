@@ -1,0 +1,47 @@
+body {
+}
+
+.content {
+    left: 80px;
+    top: 80px;
+    right: 300px;
+    position: fixed;
+    padding: 0px;
+    padding-bottom: 50px;
+    width: calc(100vw  - 80px);
+    height: 100vh;
+    overflow: auto;
+    height: calc(100vh - 80px); /* 減去頂部導航欄的高度 */
+    overflow-y: auto; /* 允許在 Y 軸方向滾動 */
+}
+
+.items {
+    width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    font-size: x-large;
+}
+
+table {
+    border-collapse: collapse;
+
+}
+
+
+tr:hover td:not(:first-child){
+    background-color: #fac9b246;
+}
+
+.name {
+    padding-left: 50px;
+}
+
+
+.img {
+    width: 150px;
+}
+
+.items tr td img {
+    width: 100px;
+}
+

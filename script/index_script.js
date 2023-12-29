@@ -126,7 +126,6 @@ function listenClose() {
 
     const orderCloseBtn = document.querySelector('#close');
     orderCloseBtn.addEventListener('click', function () {
-        console.log("test")
         closeOrderForm()
     });
 }
@@ -197,10 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', function () {
             // 獲取 data-key 屬性
             const key = this.dataset.key;
-            console.log("被點擊的元素的 data-key 是: ", key);
             // get data from menuData filter by key 
             const itemData = menuData.filter(item => item.key == key)[0];
-            console.log("被點擊的元素的數據是: ", itemData);
             // 在這裡加入其他你想要執行的操作
             createOrder(itemData);    
 

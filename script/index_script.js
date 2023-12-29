@@ -43,7 +43,7 @@ function createMenu(menuItems) {
 
 // 生成訂購單 Html
 function createOrder(item) {
-    orderHtml = `
+    const orderHtml = `
     <div id="add_order">
     <div class="order" data-key="${item.key}">
         <a id="close"><img src="./assets/close.svg" alt=""></a>
@@ -169,7 +169,7 @@ function sendToCart() {
         // get key from document.querySelector("#add_order > div")
         const key = document.querySelector("#add_order > div").dataset.key
         // get item data by key
-        const itemData = menuData.menuItems.filter(item => item.key == key)[0];
+        const itemData = menuData.filter(item => item.key == key)[0];
         // get quantity 
         const q = document.querySelector("#quantity").innerHTML
         createDetial(itemData, q)
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = this.dataset.key;
             console.log("被點擊的元素的 data-key 是: ", key);
             // get data from menuData filter by key 
-            const itemData = menuData.menuItems.filter(item => item.key == key)[0];
+            const itemData = menuData.filter(item => item.key == key)[0];
             console.log("被點擊的元素的數據是: ", itemData);
             // 在這裡加入其他你想要執行的操作
             createOrder(itemData);    

@@ -15,6 +15,10 @@ body {
     overflow-y: auto; /* 允許在 Y 軸方向滾動 */
 }
 
+h1 {
+    text-align: center;
+}
+
 .items {
     width: 800px;
     margin: auto;
@@ -28,20 +32,41 @@ table {
 }
 
 
-tr:hover td:not(:first-child){
+tr:hover td:not(:first-child) {
     background-color: #fac9b246;
+}
+
+.price {
+    text-align: right;
 }
 
 .name {
     padding-left: 50px;
 }
 
-
-.img {
-    width: 150px;
+.icon {
+    margin-right: 10px;
 }
 
-.items tr td img {
+.icon img {
+    width: 30px;
+}
+
+.img img{
     width: 100px;
 }
 
+
+
+
+
+.operation {
+    padding-left: 30px;
+}
+
+
+/* #828282 */
+
+.icon :hover {
+    cursor: pointer;
+}

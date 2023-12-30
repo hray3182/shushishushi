@@ -103,11 +103,13 @@ function createOrder(item) {
 
 // 創建訂單明細
 function createDetial(item, quantity) {
+    const subtotal = item.price * quantity
     // <li>蝦仁扇貝天婦羅醬拌烏龍麵(溫) x 1 $130</li>
-    let html = `<li>${item.name} x ${quantity} $${item.price * quantity}</li>`
-    const ul = document.querySelector("#order-list")
+    let html = `<tr><td>${item.name}</td> <td>x${quantity}</td> <td class="subtotal">$${subtotal}</td></tr>`
+    const ul = document.querySelector("table")
     ul.insertAdjacentHTML('beforeend', html);
     closeOrderForm()
+    countTotal()
 }
 
 // close order form
@@ -119,6 +121,17 @@ function closeOrderForm() {
 
 // count total
 function countTotal() {
+    // target is tr .subtotal
+    let total = 0
+    const subtotal = document.querySelectorAll(".subtotal")
+    subtotal.forEach(item => {
+        total += parseInt(item.innerHTML.match(/\d+/))
+    })
+
+    // change element text p .target
+    const totalElement = document.querySelector("body > div.right > div.bottom > p")
+    totalElement.innerHTML = `合計 $${total}`
+
 }
 
 // 監聽關閉按鈕
@@ -175,6 +188,17 @@ function sendToCart() {
     })
 }
 
+function sendOrder() {
+    // remove all tr
+    const tr = document.querySelectorAll("tr")
+    tr.forEach(item => {
+        item.remove()
+    })
+    const totalElement = document.querySelector("body > div.right > div.bottom > p")
+    totalElement.innerHTML = ``
+
+}
+
 // 當文檔加載完成後，將菜單添加到 .content 元素中
 document.addEventListener('DOMContentLoaded', () => {
     const target = document.querySelector("div.content");
@@ -198,11 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = this.dataset.key;
             // get data from menuData filter by key 
             const itemData = menuData.filter(item => item.key == key)[0];
-            // 在這裡加入其他你想要執行的操作
             createOrder(itemData);    
 
         });
     });
 });
 
+document.querySelector("body > div.right > div.bottom > button").addEventListener('click', function () {
+    sendOrder()
+})
 

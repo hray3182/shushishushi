@@ -45,7 +45,7 @@ function createEditItemLayout(item) {
     const html = `
     <div class="edit_item" data-key="${item.key}">
     <div class="container">
-        <a id="close"><img src="../assets/close.svg" alt=""></a>
+        <a id="close"><img src="./assets/close.svg" alt=""></a>
         <h1>編輯品項</h1>
         <img src="${item.img_file}" alt="">
         <hr>
@@ -101,7 +101,7 @@ function modifyImgLinstener() {
 }
 
 function confirmListener() {
-    
+
 }
 
 // 監聽關閉按鈕

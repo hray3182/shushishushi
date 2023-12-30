@@ -25,12 +25,9 @@ function createItems(data) {
 
 function handleDelete() {
     const key = this.closest("tr").dataset.key;
-    console.log(key)
     const item = menuData.find(item => item.key == key);
-    console.log(item)
     const index = menuData.indexOf(item);
     menuData.splice(index, 1)
-    console.log(menuData)
 
     const tr = document.querySelector(`tr[data-key='${key}']`)
     tr.remove()
@@ -43,12 +40,92 @@ function handleEdit() {
     const item = menuData.find(item => item.key == key);
     createEditItemLayout(item)
 
-    
+
 }
+
+const addItemLayout = `
+<div class="edit_item" data-key="">
+<div class="container">
+    <a id="close"><img src="./assets/close.svg" alt=""></a>
+    <h1>新增商品</h1>
+    <img src="" alt="">
+    <hr>
+    <div class="form">
+        <div class="row">
+            <label for="name">品名</label>
+            <input name="name" type="text" value="">
+        </div>
+        <div class="row">
+            <label for="price">價格</label>
+            <input name="price" type="text" value="">
+        </div>
+        <div class="row">
+            <label for="category">分類</label>
+            <input name="category" type="text" value="">
+        </div>
+        <div class="row">
+        <label for="path_to_img">圖片</label>
+        <input name="path_to_img" type="text" value="">
+    </div>
+    </div>
+
+    <div class="bottom">
+        <button id="modify_img">預覽圖片</button>
+        <button id="confirm-add">確認修改</button>
+    </div>
+
+</div>
+</div>
+`
 
 function handleAdd() {
-
+    const button = document.querySelector("#add_item")
+    button.addEventListener('click', function () {
+        document.querySelector('body').insertAdjacentHTML('beforeend', addItemLayout);
+        setTimeout(listenClose, 0);
+        setTimeout(modifyImgListener, 0);
+        setTimeout(confirmAdd, 0);
+    })
 }
+
+function confirmAdd() {
+    const button = document.querySelector("#confirm-add")
+    button.addEventListener('click', function () {
+        const key = menuData.length + 1;
+        const name = document.querySelector("input[name='name']").value;
+        const price = document.querySelector("input[name='price']").value;
+        const category = document.querySelector("input[name='category']").value;
+        const img_file = document.querySelector("input[name='path_to_img']").value;
+        const item = {
+            key: key,
+            name: name,
+            price: price,
+            category: category,
+            img_file: img_file
+        }
+        menuData.push(item)
+        const tr = document.createElement("tr");
+        tr.setAttribute("data-key", key);
+        tr.innerHTML = `
+            <td class="img"><img src="${img_file}"></td>
+            <td class="name">${name}</td>
+            <td class="catregory">${category}</td>
+            <td class="price">${price}</td>
+            <td class="operation">
+                <a class="icon edit"><img  src="./assets/edit.svg" alt=""></a>
+                <a class="icon delete"><img  src="./assets/delete.svg" alt=""></a>
+            </td>
+        `;
+
+
+        const target = document.querySelector("table");
+        target.prepend(tr);
+        closeOrderForm()
+        deleleteListener()
+        editListener()
+    })
+}
+
 
 function createEditItemLayout(item) {
     const html = `
@@ -172,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         deleleteListener()
         editListener()
+        handleAdd()
 
     } else {
         console.error("未找到類別為 'table' 的 div 元素");

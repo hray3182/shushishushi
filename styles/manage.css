@@ -19,6 +19,29 @@ h1 {
     text-align: center;
 }
 
+#add_item {
+    width: 200px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 20px;
+    justify-content: center;
+    font-size: x-large;
+    display: flex;
+    background-color: #F3B8AA;
+}
+
+#add_item:hover {
+    cursor: pointer;
+}
+
+#add_item a {
+    margin-left: 10px;
+}
+
+#add_item img{
+    width: 30px;
+}
+
 .items {
     width: 800px;
     margin: auto;
@@ -30,8 +53,6 @@ table {
     border-collapse: collapse;
 
 }
-
-
 tr:hover td:not(:first-child) {
     background-color: #fac9b246;
 }
@@ -56,16 +77,9 @@ tr:hover td:not(:first-child) {
     width: 100px;
 }
 
-
-
-
-
 .operation {
     padding-left: 30px;
 }
-
-
-/* #828282 */
 
 .icon :hover {
     cursor: pointer;

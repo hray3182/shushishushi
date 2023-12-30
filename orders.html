@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./styles/global.css">
-        <link rel="stylesheet" href="./styles/orders.css">
-        <title>訂單管理</title>
-    </head>
-    <body>
-        <header>
-            <img id="logo" src="./assets/LOGO.png" alt="">
-        </header>
-        <nav class="left">
-            <ul>
-                <li><a href="./index.html"><img id="home" src="./assets/home.svg"></a></li>
-                <li><a href="./orders.html"><img id="order" src="./assets/order.svg"></a></li>
-                <li><a href="./manage.html"><img src="./assets/setting.svg"></a></li>
-            </ul>
-        </nav>
-        <div class="content">
-            <h1>訂單管理</h1>
-            <div class="orders">
-                <div class="order">
-                    <div class="order-head">
-                        <a id="time">上午 11: 05</a>
-                        <a id="table">7桌</a>
+
+<head>
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/orders.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>訂單管理</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="./assets/LOGO.png" alt="">
+    </header>
+    <nav class="left">
+        <ul>
+            <li><a href="./index.html"><img id="home" src="./assets/home.svg"></a></li>
+            <li><a href="./orders.html"><img id="order" src="./assets/order.svg"></a></li>
+            <li><a href="./manage.html"><img src="./assets/setting.svg"></a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>訂單管理</h1>
+        <div class="orders">
+            <div class="order">
+                <div class="order-head">
+                    <a id="time">上午 11: 05</a>
+                    <a id="table">7桌</a>
+                </div>
+                <div class="order-body">
+                    <div class="items">
+                        <table>
+                            <tr>
+                                <td class="name">海棉握壽司超級加大</td>
+                                <td class="quantity">x3</td>
+                                <td class="subtotal">$300</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="order-body">
-                        <div class="items">
-                            <table>
-                                <tr>
-                                    <td class="name">海棉握壽司超級加大</td>
-                                    <td class="quantity">x3</td>
-                                    <td class="subtotal">$300</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="total">
-                        合計: 300元
-                    </div>
+                </div>
+                <div class="total">
+                    合計: 300元
                 </div>
             </div>
         </div>
-    </body>
-    <script type="module" src="./scripts/orders.js"></script>
-    <script type="module" src="./scripts/menu.js"></script>
+    </div>
+</body>
+<script type="module" src="./scripts/orders.js"></script>
+<script type="module" src="./scripts/menu.js"></script>
+
 </html>

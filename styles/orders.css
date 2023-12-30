@@ -1,0 +1,90 @@
+.content {
+    left: 80px;
+    top: 80px;
+    right: 300px;
+    position: fixed;
+    padding: 0px;
+    padding-bottom: 50px;
+    width: calc(100vw - 80px);
+    height: 100vh;
+    overflow: auto;
+    height: calc(100vh - 80px);
+    /* 減去頂部導航欄的高度 */
+    overflow-y: auto;
+    /* 允許在 Y 軸方向滾動 */
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+.orders {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(80%);
+    margin: auto;
+}
+
+.order {
+    box-sizing: border-box;
+    flex-basis: calc(25% - 20px);
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    height: 300px;
+    position: relative;
+}
+
+.total {
+    position: absolute;
+    bottom: 0; /* 置底 */
+    left: 0;
+    right: 0;
+    margin: auto; /* 自動邊距用於置中 */
+    text-align: center;
+    width: 100%; /* 根據需求設定子元件的寬度 */
+    font-size: x-large;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #F5CAA0;
+    border-radius: 0 0 10px 10px ;
+}
+
+.order-head {
+    background-color: #D99686;
+    display: flex;
+    justify-content: space-between;
+    font-size: x-large;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.order-body {
+    border-radius: 0 0 10px 10px ;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    font-size: large;
+}
+
+.table tr {
+    width: 100%;
+}
+
+.subtotal {
+    text-align: right;
+}
+
+
+#time {
+    margin-left: 10px;
+}
+
+#table {
+    text-align: right;
+    margin-right: 10px;
+}
+

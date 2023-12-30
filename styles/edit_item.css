@@ -29,6 +29,7 @@ input {
     margin-top: 20px;
     margin-left: 20px;
     border: none;
+    border-radius: 5px;
 }
 
 #close {
@@ -62,6 +63,7 @@ input {
     margin: auto;
     margin-top: 25px;
     width: 200px;
+    border-radius: 20px;
 }
 
 .bottom button:hover {
@@ -74,5 +76,5 @@ input {
 
 .container img {
     width: 200px;
-    text-align: center;
+    border-radius: 20px;
 }

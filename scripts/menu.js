@@ -690,7 +690,7 @@ function sortData()  {
     })
 
     menuItems.forEach(item => {
-        item.key = idCounter++; // 新增，為每個項目添加一個唯一的 key
+        item.key = idCounter++;
     });
 
 

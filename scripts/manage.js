@@ -24,7 +24,16 @@ function createItems(data) {
 }
 
 function handleDelete() {
-    console.log("delete")
+    const key = this.closest("tr").dataset.key;
+    console.log(key)
+    const item = menuData.find(item => item.key == key);
+    console.log(item)
+    const index = menuData.indexOf(item);
+    menuData.splice(index, 1)
+    console.log(menuData)
+
+    const tr = document.querySelector(`tr[data-key='${key}']`)
+    tr.remove()
 }
 
 function handleEdit() {
@@ -78,6 +87,8 @@ function createEditItemLayout(item) {
     `
     document.querySelector('body').insertAdjacentHTML('beforeend', html);
     setTimeout(listenClose, 0);
+    setTimeout(modifyImgListener, 0);
+    setTimeout(confirmListener, 0);
 }
 
 function deleleteListener() {
@@ -96,13 +107,42 @@ function editListener() {
     })
 }
 
-function modifyImgLinstener() {
-
+function modifyImgListener() {
+    const button = document.querySelector("#modify_img")
+    button.addEventListener('click', function () {
+        const url = document.querySelector("input[name='path_to_img']").value;
+        const img = document.querySelector("body > div.edit_item > div > img")
+        img.src = url
+    })
 }
 
 function confirmListener() {
+    const button = document.querySelector("#confirm")
+    button.addEventListener('click', function () {
+        const key = document.querySelector("div.edit_item").dataset.key;
+        const item = menuData.find(item => item.key == key);
+        const name = document.querySelector("input[name='name']").value;
+        const price = document.querySelector("input[name='price']").value;
+        const category = document.querySelector("input[name='category']").value;
+        const img_file = document.querySelector("input[name='path_to_img']").value;
+        item.name = name
+        item.price = price
+        item.category = category
+        item.img_file = img_file
+        console.log(item)
 
+        const tr = document.querySelector(`tr[data-key='${key}']`)
+        tr.querySelector(".name").textContent = name
+        tr.querySelector(".price").textContent = price
+        tr.querySelector(".catregory").textContent = category
+        tr.querySelector(".img img").src = img_file
+
+
+        closeOrderForm()
+    })
 }
+
+
 
 // 監聽關閉按鈕
 function listenClose() {

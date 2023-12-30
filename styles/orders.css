@@ -48,16 +48,17 @@ h1 {
     font-size: x-large;
     padding-bottom: 10px;
     padding-top: 10px;
-    background-color: #F5CAA0;
+    background-color: #F3DDC6;
     border-radius: 0 0 10px 10px ;
 }
 
 .order-head {
-    background-color: #D99686;
+    background-color: #F3AB66;
     display: flex;
     justify-content: space-between;
     font-size: x-large;
     border-radius: 10px 10px 0 0 ;
+    padding: 10px;
 }
 
 .order-body {

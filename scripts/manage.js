@@ -1,4 +1,4 @@
-import { menuData } from "./menu.js";
+import { menuData } from "./menu.js"; 
 
 
 function createItems(data) {

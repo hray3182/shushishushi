@@ -1,9 +1,13 @@
 import { menuData } from "./menu.js";
 
+function padWithLeadingZeros(num, totalLength) {
+    return String(num).padStart(totalLength, '0');
+  }
+
 function generateRandomOrder() {
-    const hour = Math.floor(Math.random() * 12) + 1;
+    const hour = padWithLeadingZeros(Math.floor(Math.random() * 12) + 1, 2);
     const timezone = (hour > 6 && hour < 12) ? "上午" : "下午";
-    const minute = Math.floor(Math.random() * 60);
+    const minute = padWithLeadingZeros(Math.floor(Math.random() * 60), 2);
     const time = `${timezone} ${hour}:${minute}`;
 
     const tableNum = Math.floor(Math.random() * 10) + 1;
@@ -63,7 +67,7 @@ function createOrder(num) {
 }
 
 function init() {
-    const orders = createOrder(10);
+    const orders = createOrder(16);
     const body = document.querySelector(".orders");
     body.innerHTML = orders.join("");
 }
